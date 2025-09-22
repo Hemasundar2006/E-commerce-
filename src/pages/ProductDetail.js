@@ -199,7 +199,7 @@ const ProductDetail = () => {
   const imageUrl = currentImage 
     ? (currentImage.startsWith('http') 
         ? currentImage 
-        : `https://lakshmiservices.netlify.app${currentImage}`)
+        : `https://e-commerce-website-backend1-production.up.railway.app${currentImage}`)
     : null;
 
   return (
@@ -272,7 +272,7 @@ const ProductDetail = () => {
               {images.map((image, index) => {
                 const thumbUrl = image.startsWith('http') 
                   ? image 
-                  : `https://lakshmiservices.netlify.app${image}`;
+                  : `https://e-commerce-website-backend1-production.up.railway.app${image}`;
                 
                 return (
                   <button

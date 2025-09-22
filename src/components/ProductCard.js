@@ -81,7 +81,7 @@ const ProductCard = ({ product, showAddToCart = true }) => {
   const imageUrl = product.images && product.images.length > 0 
     ? (product.images[0].startsWith('http') 
         ? product.images[0] 
-        : `https://lakshmiservices.netlify.app${product.images[0]}`)
+        : `https://e-commerce-website-backend1-production.up.railway.app${product.images[0]}`)
     : null;
 
   return (
