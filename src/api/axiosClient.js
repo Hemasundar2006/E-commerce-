@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://lakshmiservices.netlify.app';
+const API_BASE_URL = 'https://e-commerce-website-backend1.railway.internal';
 
 // Create axios instance
 const axiosClient = axios.create({
