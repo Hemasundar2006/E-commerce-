@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://lakshmi-backend.onrender.com';
+const API_BASE_URL = 'https://lakshmiservices.netlify.app';
 
 // Create axios instance
 const axiosClient = axios.create({
