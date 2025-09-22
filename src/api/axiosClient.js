@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://e-commerce-website-backend1.railway.internal';
+const API_BASE_URL = 'https://e-commerce-website-backend1-production.up.railway.app';
 
 // Create axios instance
 const axiosClient = axios.create({
