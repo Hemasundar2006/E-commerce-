@@ -103,19 +103,3 @@ export const authAPI = {
 
 // For backward compatibility, export individual functions
 export const registerUser = authAPI.register;
-
-// Alternative axios version
-export const registerUser = async (userData) => {
-  try {
-    const response = await axiosClient.post('/api/auth/register', userData);
-    
-    // Store token and user data if provided
-    if (response.data.token) localStorage.setItem('token', response.data.token);
-    if (response.data.user) localStorage.setItem('user', JSON.stringify(response.data.user));
-    
-    return response.data;
-  } catch (error) {
-    console.error("Registration failed:", error);
-    throw error;
-  }
-};
