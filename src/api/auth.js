@@ -41,7 +41,7 @@ export const authAPI = {
     }
   },
 
-  // Register user
+  // Register user - Updated version
   register: async (userData) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
@@ -49,7 +49,7 @@ export const authAPI = {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        credentials: 'include', // This is equivalent to withCredentials: true in axios
         body: JSON.stringify(userData)
       });
 
@@ -75,6 +75,7 @@ export const authAPI = {
       if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
         throw new Error('Network error: Unable to connect to server. Please check your internet connection and try again.');
       }
+      console.error("Registration failed:", error);
       throw error;
     }
   },
@@ -98,4 +99,23 @@ export const authAPI = {
   logout: async () => {
     return await axiosClient.post('/api/auth/logout');
   },
+};
+
+// For backward compatibility, export individual functions
+export const registerUser = authAPI.register;
+
+// Alternative axios version
+export const registerUser = async (userData) => {
+  try {
+    const response = await axiosClient.post('/api/auth/register', userData);
+    
+    // Store token and user data if provided
+    if (response.data.token) localStorage.setItem('token', response.data.token);
+    if (response.data.user) localStorage.setItem('user', JSON.stringify(response.data.user));
+    
+    return response.data;
+  } catch (error) {
+    console.error("Registration failed:", error);
+    throw error;
+  }
 };
